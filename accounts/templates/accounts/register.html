@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="register-container" style="background-image: url('{% static 'images/background.jpg' %}');">
+    <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock %}
